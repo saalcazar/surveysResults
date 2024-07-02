@@ -28,7 +28,7 @@ const Vote = () => {
       .then(data => {
         alert('Gracias por participar');
         nav('/');
-        window.open('https://chat.whatsapp.com/invite/LdL6HNfkDqg3ElCQJTZGII', '_blank');
+        window.open('https://chat.whatsapp.com/LHmBP22xFVOIo0ZDUBIR0j', '_blank');
       });
   };
 
