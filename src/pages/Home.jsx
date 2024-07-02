@@ -22,8 +22,8 @@ const Home = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const optionA = results.filter((a) => a.option == 'A')
-  const optionB = results.filter((b) => b.option == 'B')
+  const optionA = results.filter((a) => a.option == 'Arce')
+  const optionB = results.filter((b) => b.option == 'Evo')
   const totalVotes = results.length
 
   const percentageA = totalVotes > 0 ? (optionA.length / totalVotes) * 100 : 0
