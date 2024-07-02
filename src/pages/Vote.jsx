@@ -12,7 +12,7 @@ const Vote = () => {
       option: e.target.option.value
     }
     
-    fetch('https://surveys-production.up.railway.app/v1/', {
+    fetch('https://surveys-production.up.railway.app/v1/survey/create', {
       method: 'POST',
       body: JSON.stringify(dataVote),
       headers: {
