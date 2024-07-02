@@ -6,4 +6,14 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color1: hsl(220 10% 80%);
+  --color2: hsl(220 10% 78%);
+  --color3: hsl(133, 62%, 33%);
+  --color4: hsl(220 13% 91%);
+  --color5: hsl(360 50% 50%);
+  --color6: hsl(360 20% 10%);
+}
+
+input, button, select, option {
+  all: unset;
 }

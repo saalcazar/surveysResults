@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
+import arce from '../assets/arce.webp';
+import evo from '../assets/evo.webp';
 
 const Home = () => {
   const URL = 'https://surveys-production.up.railway.app/v1/'
@@ -22,29 +24,53 @@ const Home = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const optionA = results.filter((a) => a.option == 'Arce')
-  const optionB = results.filter((b) => b.option == 'Evo')
+  const optionA = results.filter((a) => a.option === 'Arce')
+  const optionB = results.filter((b) => b.option === 'Evo')
   const totalVotes = results.length
 
   const percentageA = totalVotes > 0 ? (optionA.length / totalVotes) * 100 : 0
   const percentageB = totalVotes > 0 ? (optionB.length / totalVotes) * 100 : 0
+
+  const grayscaleA = percentageA > 50 ? 0 : 0.8
+  const grayscaleB = percentageB > 50 ? 0 : 0.8
+
   return (
-    <div>
-     <div>
-        <h2>Total votos</h2>
-        <p>{totalVotes}</p>
+    <main className="container">
+      <div className="description">
+        <h3>Si las elecciones primarias fueran este mes</h3>
+        <h2>¿Por quién votaría usted?</h2>
       </div>
-      <div>
-        <h2>Opción A</h2>
-        <p>{optionA.length}</p>
-        <p>{percentageA.toFixed(2)}%</p>
-      </div>
-      <div>
-        <h2>Opción B</h2>
-        <p>{optionB.length}</p>
-        <p>{percentageB.toFixed(2)}%</p>
-      </div>
-    </div>
+      <section className="votes">
+        <div className="total">
+          <h3>Total votos</h3>
+          <p className='total-votes'>{totalVotes}</p>
+        </div>
+        <div className="a">
+          <h3>Luis Arce catacora</h3>
+          <div className="container-img">
+            <img 
+              src={arce} 
+              alt="Luis Arce Catacora" 
+              style={{ filter: `grayscale(${grayscaleA})` }} 
+            />
+          </div>
+          <p className='parcial-vote'>Votos: <span className={`total-votes ${percentageA > 50 ? 'win' : ''}`}>{optionA.length}</span></p>
+          <p className='percentage'>Porcentaje: <span className={`total-votes ${percentageA > 50 ? 'win' : ''}`}>{percentageA.toFixed(2)}%</span></p>
+        </div>
+        <div className="b">
+          <h3>Evo Morales Ayma</h3>
+          <div className='container-img'>
+            <img 
+              src={evo} 
+              alt="Evo Morales Ayma" 
+              style={{ filter: `grayscale(${grayscaleB})` }} 
+            />
+          </div>
+          <p className='parcial-vote'>Votos: <span className={`total-votes ${percentageB > 50 ? 'win' : ''}`}>{optionB.length}</span></p>
+          <p className='percentage'>Porcentaje: <span className={`total-votes ${percentageB > 50 ? 'win' : ''}`}>{percentageB.toFixed(2)}%</span></p>
+        </div>
+      </section>
+    </main>
   )
 }
 
