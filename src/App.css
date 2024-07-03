@@ -76,7 +76,7 @@
 }
 
 .select {
-  height: 400px;
+  height: 450px;
   overflow: hidden;
   border-radius: 20px;
   position: relative;
@@ -111,18 +111,21 @@
 }
 
 .select > img {
-  filter: grayscale(1);
+  filter: grayscale(1) blur(5px);
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: filter .3s ease;
+  transition: width .3s ease;
 }
 
 .select:hover > img{
-  filter: grayscale(0);
-  width: 110%;
+  filter: grayscale(0) blur(0px);
+  width: 105%;
 }
 
 .select > .survey-input[type="radio"]:checked + img {
-  filter: grayscale(0);
+  filter: grayscale(0) blur(0px);
 }
 
 .survey-input[type="submit"] {
