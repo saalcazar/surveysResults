@@ -8,7 +8,7 @@ const Vote = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataVote = {
-      mail: e.target.mail.value,
+      mail: 'sam@sam',
       place: e.target.place.value,
       age: Number(e.target.age.value),
       gender: e.target.gender.value,
@@ -40,8 +40,7 @@ const Vote = () => {
           <h2>¿Por quién votaría usted?</h2>
         </div>
         <label className="survey-label">
-          Correo:
-          <input className="survey-input" name="mail" type="email" required />
+          Ingresa los siguientes datos:
         </label>
         <label className="survey-label">
           Lugar:
